@@ -71,3 +71,15 @@ Results logged to health_check.log
 > Note: Actual disk percentage will vary. If ping fails, the script prints **"Server unreachable"** and exits with a non‑zero status.
 
 ---
+
+---
+
+## Why these choices (Reasoning)
+
+- **Robustness**: `set -u -o pipefail` + dependency checks catch common errors early.
+- **Accuracy & immediacy**: Uses `curl -I -m 5` with clear success criteria (2xx/3xx).
+- **Observability**: All steps log with timestamps to `health_check.log`, easy to ship via Promtail/Fluent Bit later.
+- **Secure defaults**: No credentials are required; the script never stores secrets.
+- **Lightweight networking**: Timeout limits and HEAD requests keep checks fast and low‑overhead.
+
+---
