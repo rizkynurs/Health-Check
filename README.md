@@ -72,8 +72,6 @@ Results logged to health_check.log
 
 ---
 
----
-
 ## Why these choices (Reasoning)
 
 - **Robustness**: `set -u -o pipefail` + dependency checks catch common errors early.
