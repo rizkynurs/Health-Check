@@ -35,10 +35,10 @@ flowchart TD
   A[Start] --> B{Args OK?}
   B -- no --> C[Print usage & exit 2]
   B -- yes --> D[Ping server]
-  D -- fail --> E[Log + "Server unreachable" & exit 1]
+  D -- fail --> E[Log + 'Server unreachable' & exit 1]
   D -- success --> F[HTTP/S check via curl]
-  F -- up --> G[Log "UP"]
-  F -- down --> H[Log "DOWN"]
+  F -- up --> G[Log 'UP']
+  F -- down --> H[Log 'DOWN']
   G --> I[Disk usage of /]
   H --> I[Disk usage of /]
   I --> J[Append timestamped logs -> health_check.log]
@@ -50,6 +50,7 @@ flowchart TD
 ## Usage
 
 ```bash
+git clone https://github.com/rizkynurs/Health-Check.git
 chmod +x health_check.sh
 
 # Default port 80
